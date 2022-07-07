@@ -46,5 +46,6 @@ Route::get('/show', function (Request $request) {
      * Display all data to user (just a bulleted list is fine)
      * Display date in a human readable format in your timezone
      */
-    return view('show', ['data' => $request->input('productions')]);
+    $data = $request->input('productions');
+    return view('show', ['data' => $data]);
 })->middleware('filter.movies');
