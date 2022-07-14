@@ -34,7 +34,6 @@
             }
 
             .content {
-                max-width: 500px;
                 margin: 0 auto;
             }
 
@@ -70,10 +69,36 @@
             h1 {
                 text-align:center;
             }
+            .output {
+                overflow: auto;
+                height: 50vh;
+                list-style-type: none;
+            }
+            .film {
+                list-style-type: none;
+                padding: 2px
+            }
+            .film-container {
+                border: 1px solid #CDCAC6;
+            }
+            .film-container + .film-container {
+                border-top: 0;
+            }
+            .film-data {
+                font-size: 18px;
+            }
         </style>
+        <script type="text/javascript">
+        function getoffset() {
+            console.log("Submitted!");
+            const date = new Date();
+            document.getElementById('offset').value =  date.getTimezoneOffset();
+            console.log(document.getElementById('offset').value)
+        }
+        </script>
     </head>
     <body>
-    <h1> NM Film Locations </h1>
+    <h1> Albuquerque Film Locations </h1>
     <div class="flex-center full-height">
             <div class="content">
                 @yield('content')

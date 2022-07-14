@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome to my NM film productions app')
+@section('title', 'Welcome')
 
 @section('content')
     <div class="step">
@@ -14,11 +14,12 @@
                 </ul>
             </div>
         @endif
-        <form action=<?php echo $_ENV['APP_URL'] . ":" . $_ENV['APP_PORT'] . "/show"?> method="GET">
+        <form onsubmit="getoffset()" action=<?php echo $_ENV['APP_URL'] . ":" . $_ENV['APP_PORT'] . "/show"?> method="GET">
             <label for="start_date">Start Date: </label>
-            <input type="date" id="start_date" name="start_date" min="2008-01-01" max="2015-12-31" />
+            <input type="date" id="start_date" name="start_date"/>
             <label for="end_date">End Date: </label>
-            <input type="date" id="end_date" name="end_date" min="2008-01-01" max="2015-12-31" />
+            <input type="date" id="end_date" name="end_date"/>
+            <input type="hidden" name="offset" id="offset" value="offset" />
             <input type="submit" value="Submit" /> 
         </form>
     </div>

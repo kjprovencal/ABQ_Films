@@ -4,21 +4,23 @@
 
 @section('content')
     <div class="step">
-        <h3>Productions</h3>
+        <h1>Productions</h1>
         <?php if(count($data) > 0){
-            echo '<ul>';
+            echo "<p style=\"margin-left:40px\"><b>Count: </b>" . count($data) . '</p>';
+            echo "<ul class='output'>";
             foreach ($data as $location => $loc_data){
-                echo "<li>" . $location;
-                    echo "<li>Title: " . $loc_data['title'] . "</li>";
-                    echo "<li>Type: " . $loc_data['type'] . "</li>"; 
-                    echo "<li>Sites: ";
-                        foreach ($loc_data['sites'] as $site){
-                            echo gettype($site);
-                            //echo "<li>Name: " . $site['name'] . "</li>";
-                            //echo "<li>Shoot Date: " . $site['shoot_date'] . "</li>";
-                        }
-                    echo "</li>";
-                echo "</li>";
+                echo "<div class='film-container'>";
+                echo "<li class='film'><b>" . $loc_data['title'] . "</b>";
+                    echo "<ul class='film-data'>";
+                        echo "<li>Type: " . $loc_data['type'] . "</li>"; 
+                        echo "<li>Sites: ";
+                        echo "<ul>";
+                            foreach ($loc_data['sites'] as $name => $shoot_date){
+                                echo "<li>" . $name . ": " . $shoot_date . "</li>";
+                            }
+                        echo "</ul></li>";
+                    echo "</ul>";
+                echo "</li></div>";
             }
             //echo '<li>' . implode('</li><li>', $data) . '</li>';
             echo '</ul>';

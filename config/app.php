@@ -186,7 +186,9 @@ return [
          * Package Service Providers...
          */
 
+        //Barryvdh\Debugbar\ServiceProvider::class,
         /*
+        
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -210,6 +212,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        //'DebugBar' => Barryvdh\Debugbar\Facade::class,
     ])->toArray(),
 
 ];
